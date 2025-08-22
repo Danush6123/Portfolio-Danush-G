@@ -1,0 +1,29 @@
+/* src/components/TypewriterHeading.css */
+
+/* --- Base Heading Styles (copied from App.css) --- */
+.typewriter-heading {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ff69b4; /* Kept the stylish pink underline */
+  display: inline-block;
+  white-space: pre; /* Ensures multiple words stay on one line */
+}
+
+/* --- Smooth Character Animation --- */
+.animated-char-heading {
+  display: inline-block;
+  opacity: 0;
+  animation: smoothTypewriterHeading 0.4s ease-out forwards;
+}
+
+@keyframes smoothTypewriterHeading {
+  from {
+    opacity: 0;
+    transform: translateY(20px) skewX(-20deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) skewX(0);
+  }
+}

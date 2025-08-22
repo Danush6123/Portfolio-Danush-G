@@ -1,0 +1,75 @@
+/* src/components/HomePage.css */
+
+.home-container {
+  height: 100vh;
+  width: 100vw; 
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+/* This overlay now ONLY provides the dark tint for text readability */
+.home-overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0; left: 0;
+  
+  /* --- THE BLUR IS REMOVED FROM HERE --- */
+  /* backdrop-filter: blur(5px); <-- THIS LINE IS DELETED */
+
+  background-color: rgba(10, 10, 20, 0.5); /* The dark purple tint remains */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.welcome-message {
+  color: #ffffff;
+  padding: 20px;
+}
+
+.main-heading {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  text-shadow: 3px 3px 8px rgba(0,0,0,0.8);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.sub-message {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  max-width: 600px;
+  opacity: 0.9;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.bottom-right-nav {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: #00e5ff;
+  transform: translateX(-10px);
+}

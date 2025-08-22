@@ -1,0 +1,12 @@
+.global-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2; /* Set to -2 to be behind everything */
+  background-size: cover;
+  background-position: center;
+  transition: none;
+  animation: none;
+}

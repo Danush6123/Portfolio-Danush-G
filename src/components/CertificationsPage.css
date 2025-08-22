@@ -1,0 +1,69 @@
+/* src/components/CertificationsPage.css */
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.cert-card {
+  /* --- GLASSMORPHISM STYLES --- */
+  background: rgba(30, 30, 30, 0.4); /* Semi-transparent background */
+  backdrop-filter: blur(10px);        /* The "frosted glass" effect */
+  -webkit-backdrop-filter: blur(10px);/* Safari compatibility */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
+  border-radius: 12px;
+  
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  cursor: pointer;
+  
+  /* Transition for hover effects */
+  transition: transform 0.4s ease-out, filter 0.4s ease-out, opacity 0.4s ease-out, background-color 0.4s ease-out;
+
+  /* Default visual state */
+  transform: scale(1);
+  filter: blur(0px);
+  opacity: 1;
+}
+
+.cert-card.is-active {
+  background: rgba(45, 45, 45, 0.6); /* Slightly more opaque on hover */
+  transform: scale(1.05);
+  filter: blur(0px);
+  opacity: 1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cert-card.is-inactive {
+  transform: scale(0.95);
+  filter: blur(3px);
+  opacity: 0.6;
+}
+
+/* --- The rest of the card styles --- */
+.cert-preview-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: top;
+  border-bottom: 1px solid #333;
+  background-color: #2a2a2a; 
+}
+
+.cert-title {
+  font-size: 1.1rem;
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 1.5;
+  padding: 15px;
+  flex-grow: 1; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
