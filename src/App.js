@@ -1,4 +1,4 @@
-// src/App.js (Updated to use GlobalBackground)
+// src/App.js (FINAL - With basename fix for GitHub Pages)
 
 import React, { createRef, useLayoutEffect } from 'react';
 import {
@@ -13,7 +13,7 @@ import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
 import ProjectsPage from './components/ProjectsPage';
 import CertificationsPage from './components/CertificationsPage';
-import GlobalBackground from './components/GlobalBackground'; // Import the new component
+import GlobalBackground from './components/GlobalBackground';
 
 import './App.css';
 
@@ -24,12 +24,11 @@ const routes = [
   { path: '/certifications', name: 'Certs', Component: CertificationsPage, nodeRef: createRef(null) }
 ];
 
-// This component now contains the router and the background logic
 function AppContent() {
   const location = useLocation();
 
   useLayoutEffect(() => {
-    window.scrollTo(0, 0); // Prevents content flash on navigation
+    window.scrollTo(0, 0);
     if (location.pathname === '/') {
       document.body.classList.add('home-page-active');
     } else {
@@ -39,8 +38,6 @@ function AppContent() {
 
   return (
     <>
-      {/* The Global Background is rendered here, outside the transitions. */}
-      {/* It will ONLY render if the current page is NOT the homepage. */}
       {location.pathname !== '/' && <GlobalBackground />}
 
       <TransitionGroup component={null}>
@@ -66,7 +63,10 @@ function AppContent() {
 
 function App() {
   return (
-    <Router>
+    // --- THIS IS THE FIX ---
+    // The basename tells React Router the root path of your app on GitHub Pages.
+    // Make sure this exactly matches your repository name.
+    <Router basename="/Portfolio-Danush-G">
       <div className="App">
         <AppContent />
       </div>
