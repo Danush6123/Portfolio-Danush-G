@@ -1,14 +1,16 @@
-// src/App.js (FINAL - With basename fix for GitHub Pages)
+// src/App.js (FINAL - Using HashRouter for GitHub Pages)
 
 import React, { createRef, useLayoutEffect } from 'react';
+// --- FIX #1: Import HashRouter instead of BrowserRouter ---
 import {
-  BrowserRouter as Router,
+  HashRouter as Router, // Use HashRouter and name it Router
   Routes,
   Route,
   useLocation
 } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
+// Your component imports remain the same
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
 import ProjectsPage from './components/ProjectsPage';
@@ -39,7 +41,6 @@ function AppContent() {
   return (
     <>
       {location.pathname !== '/' && <GlobalBackground />}
-
       <TransitionGroup component={null}>
         <CSSTransition
           key={location.key}
@@ -63,10 +64,8 @@ function AppContent() {
 
 function App() {
   return (
-    // --- THIS IS THE FIX ---
-    // The basename tells React Router the root path of your app on GitHub Pages.
-    // Make sure this exactly matches your repository name.
-    <Router basename="/Portfolio-Danush-G">
+    // --- FIX #2: Use the HashRouter component. No basename is needed. ---
+    <Router>
       <div className="App">
         <AppContent />
       </div>
